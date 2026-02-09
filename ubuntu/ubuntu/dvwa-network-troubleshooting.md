@@ -1,4 +1,4 @@
-ubuntu/dvwa-network-troubleshooting.md
+dvwa-network-troubleshooting.md
 # DVWA Network Troubleshooting Lab
 
 ## Scenario
