@@ -4,7 +4,7 @@ dvwa-network-troubleshooting.md
 ## Scenario
 DVWA was hosted on an Ubuntu desktop but was not accessible from a Windows laptop on the same network.
 
-Goal: Identify the root cause and restore connectivity.
+## Goal: Identify the root cause and restore connectivity.
 ---
 ## Environment
 **Target:** Ubuntu Desktop  
@@ -59,9 +59,8 @@ TcpTestSucceeded : True
 
 ✅ investigation  
 ✅ process  
-
 ✅ outcome  
-DVWA became accessible from the Windows machine.
+## DVWA became accessible from the Windows machine.
 
 
 
