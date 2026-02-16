@@ -9,7 +9,7 @@ This repository documents a continuously evolving personal cybersecurity lab foc
 - Vulnerability discovery  
 - Windows & Linux system investigation  
 - Web application security testing
-- 
+  
 ## Methodology
 
 Each exercise follows a structured approach:
