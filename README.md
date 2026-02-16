@@ -4,12 +4,12 @@ This repository documents a continuously evolving personal cybersecurity lab foc
 
 ## Lab Focus
 
-- Web application security testing  
 - Manual log analysis  
 - Network observation  
 - Vulnerability discovery  
 - Windows & Linux system investigation  
-
+- Web application security testing
+- 
 ## Methodology
 
 Each exercise follows a structured approach:
