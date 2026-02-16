@@ -21,6 +21,7 @@ DVWA opened locally on Ubuntu but could not be reached from Windows via `http://
 1. **Apache Verification**  
    Checked if Apache was running:  
    ```bash
+   
    sudo systemctl status apache2
 
 2. **Port Check**
@@ -31,6 +32,7 @@ sudo ss -tulnp | grep :80
 **Result: LISTEN → Apache was accepting connections.**
 
 3. **Network Connectivity Test**
+4. 
 From Windows:
 
 Test-NetConnection -Port 80
@@ -38,6 +40,7 @@ Test-NetConnection -Port 80
 **Initial Result: TcpTestSucceeded : False → Service unreachable**
 
 4. **Firewall Investigation**
+5. 
 Checked firewall configuration on Ubuntu. Found that the connection zone was not properly configured.
 
 --nmcli connection show
@@ -46,7 +49,7 @@ Checked firewall configuration on Ubuntu. Found that the connection zone was not
 
 
 5. **Fix Applied**
-6. 
+
 Assigned the connection to a trusted zone and reloaded the connection.
 
 Test-NetConnection -Port 80
