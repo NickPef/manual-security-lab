@@ -3,7 +3,7 @@
 ## Scenario
 - DVWA was hosted on an Ubuntu desktop but was not accessible from a Windows laptop on the same network.
 - Goal Identify the root cause and restore connectivity.
-
+ 
 ## Environment
 **Target:** Ubuntu Desktop  
 - Apache2  
