@@ -28,14 +28,14 @@ Verified that port 80 was listening:
 
 sudo ss -tulnp | grep :80
 
-## Result: LISTEN → Apache was accepting connections.
+**Result: LISTEN → Apache was accepting connections.**
 
 3. **Network Connectivity Test**
 From Windows:
 
 Test-NetConnection -Port 80
 
-## Initial Result: TcpTestSucceeded : False → Service unreachable.
+**Initial Result: TcpTestSucceeded : False → Service unreachable**
 
 4. **Firewall Investigation**
 Checked firewall configuration on Ubuntu. Found that the connection zone was not properly configured.
@@ -49,10 +49,10 @@ Assigned the connection to a trusted zone and reloaded the connection.
 
 Test-NetConnection -Port 80
 
-## Result: TcpTestSucceeded : True
+ **Result: TcpTestSucceeded : True**
 
 
-# Outcome
+**Outcome**
 ✅ **DVWA became accessible from the Windows machine.**
 
 
