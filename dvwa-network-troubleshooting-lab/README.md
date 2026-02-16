@@ -41,10 +41,12 @@ Test-NetConnection -Port 80
 Checked firewall configuration on Ubuntu. Found that the connection zone was not properly configured.
 
 --nmcli connection show
+
 --nmcli connection show netplan-enpxxx | grep zone
 
 
 5. **Fix Applied**
+6. 
 Assigned the connection to a trusted zone and reloaded the connection.
 
 Test-NetConnection -Port 80
