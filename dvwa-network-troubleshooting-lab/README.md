@@ -32,7 +32,7 @@ sudo ss -tulnp | grep :80
 **Result: LISTEN → Apache was accepting connections.**
 
 3. **Network Connectivity Test**
-4. 
+
 From Windows:
 
 Test-NetConnection -Port 80
@@ -40,12 +40,12 @@ Test-NetConnection -Port 80
 **Initial Result: TcpTestSucceeded : False → Service unreachable**
 
 4. **Firewall Investigation**
-5. 
+
 Checked firewall configuration on Ubuntu. Found that the connection zone was not properly configured.
 
---nmcli connection show
+nmcli connection show
 
---nmcli connection show netplan-enpxxx | grep zone
+nmcli connection show netplan-enpxxx | grep zone
 
 
 5. **Fix Applied**
