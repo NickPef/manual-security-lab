@@ -47,9 +47,9 @@ Traceroute analysis
 
 -v → Enables verbose output to display detailed scan progress.
 
-This scan type generates significant network activity and is useful for detection testing in controlled lab environments.
+**This scan type generates significant network activity and is useful for detection testing in controlled lab environments**
 
-Ubuntu Detection Commands
+## Uuntu Detection Commands
 Rotate and Clean Old Logs
 sudo journalctl --rotate
 sudo journalctl --vacuum-time=1s
