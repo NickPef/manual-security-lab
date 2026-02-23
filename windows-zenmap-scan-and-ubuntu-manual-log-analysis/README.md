@@ -126,9 +126,6 @@ Filters logs associated with a specific scanning source IP address.
 
 
 
-Personal Security Lab
-
-Focus
-
-Offensive simulation and defensive detection validation
+**Personal Security Lab**
+**Offensive simulation and defensive detection validation**
 
