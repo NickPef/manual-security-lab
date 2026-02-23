@@ -125,4 +125,4 @@ Personal Security Lab
 
 Focus
 
-Offensive simulation and defensive detection validation
+Offensive simulation and defensive detection validation.
