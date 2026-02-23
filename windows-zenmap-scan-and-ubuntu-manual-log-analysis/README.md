@@ -34,7 +34,7 @@ The purpose of this lab was to observe how network scanning behavior can be dete
 
 ### Intense Reconnaissance Scan
 
-bash
+-- bash
 nmap -T4 -A -v <TARGET_IP>
 
 **Command Explanation**
