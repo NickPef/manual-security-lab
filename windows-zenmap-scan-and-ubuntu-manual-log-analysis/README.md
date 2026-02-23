@@ -125,7 +125,7 @@ Even basic scanning attempts can be identified in system telemetry.
 
 Kernel-level logs provide valuable security visibility.
 
-Author
+
 
 Personal Security Lab
 
