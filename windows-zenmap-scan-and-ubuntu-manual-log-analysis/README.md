@@ -4,3 +4,4 @@
 **The objective is to observe how scan activity appears from the attacker perspective**
 **and how it can be manually detected and analyzed on the target system through log inspection**
 
+
