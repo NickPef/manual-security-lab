@@ -59,26 +59,26 @@ nmap -T4 -A -v <TARGET_IP>
 
 **Rotate and Clean Old Logs**
 
-sudo journalctl --rotate
+1) sudo journalctl --rotate
 - Forces systemd to archive current logs and start a new logging cycle.
 
-sudo journalctl --vacuum-time=1s
+2) sudo journalctl --vacuum-time=1s
 - Removes archived logs older than 1 second to ensure a clean testing environment.
 
 **Configure Firewall Logging**
 
-sudo ufw default deny incoming
+3) sudo ufw default deny incoming
 - Blocks all unsolicited incoming network connections by default.
 
-sudo ufw logging medium
+4)sudo ufw logging medium
 - Enables balanced firewall logging verbosity.
 
-sudo ufw reload
+5) sudo ufw reload
 Applies firewall configuration changes.
 
 **Real-Time Log Monitoring**
 
-sudo journalctl -kf | grep UFW
+6) sudo journalctl -kf | grep UFW
 
 - -k → Displays kernel messages where firewall events are recorded.
 
@@ -90,7 +90,7 @@ Keep this terminal open during scan execution.
 
 **Monitor Blocked Connection Attempts Only**
 
-sudo journalctl -k -f | grep BLOCK
+7) sudo journalctl -k -f | grep BLOCK
 
 Displays only dropped packets, which is useful for detecting reconnaissance scanning activity.
 
@@ -98,13 +98,13 @@ Displays only dropped packets, which is useful for detecting reconnaissance scan
 
 **View Logs From Current Boot Session**
 
-sudo journalctl -k --since today
+8) sudo journalctl -k --since today
 
 Displays kernel logs generated during the current system boot session.
 
 **Search Logs by Attacker IP**
 
-sudo journalctl -k | grep <ATTACKER_IP>
+9) sudo journalctl -k | grep <ATTACKER_IP>
 
 Filters logs associated with a specific scanning source IP address.
 
