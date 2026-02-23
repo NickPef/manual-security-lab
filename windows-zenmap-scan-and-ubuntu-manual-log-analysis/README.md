@@ -50,7 +50,7 @@ Traceroute analysis
 
 ---
 
-**This scan type generates significant network activity and is useful for detection testing in controlled lab environments**
+This scan type generates significant network activity and is useful for detection testing in controlled lab environments
 
 ## Uuntu Detection Commands
 
