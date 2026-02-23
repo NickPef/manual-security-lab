@@ -31,6 +31,7 @@ The purpose of this lab was to observe how network scanning behavior can be dete
 
 ```bash
 **nmap -T4 -A -v <TARGET_IP>**
+
 -- Command Explanation
 
 -T4 → Sets scan timing to aggressive mode, increasing scanning speed and traffic intensity.
@@ -53,10 +54,10 @@ Traceroute analysis
 
 ## Uuntu Detection Commands
 
-Rotate and Clean Old Logs
-sudo journalctl --rotate
-sudo journalctl --vacuum-time=1s
-Explanation
+- Rotate and Clean Old Logs
+- sudo journalctl --rotate
+- sudo journalctl --vacuum-time=1s
+- Explanation
 
 Forces log rotation to create a clean monitoring environment.
 
@@ -125,7 +126,6 @@ Kernel-level logs provide valuable security visibility.
 Author
 
 Personal Security Lab
-
 Focus
 
 Offensive simulation and defensive detection validation.
