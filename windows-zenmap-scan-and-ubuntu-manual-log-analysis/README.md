@@ -1,21 +1,101 @@
-# windows-zenmap-initiated-scan-and-ubuntu-manual-log-detection
+Command Explanation
 
-## Scenario
-A controlled network scan was launched from a Windows machine using Zenmap against an Ubuntu host to simulate reconnaissance activity during the initial phase of a potential cyber attack.
+-T4 → Aggressive scan timing for faster and more noisy reconnaissance traffic.
 
-The purpose of this lab was to observe how network scanning behavior can be detected using firewall logs and real-time traffic monitoring.
+-A → Enables advanced detection features including:
 
-## Environment
+OS fingerprinting
 
-### Target System
-- Ubuntu Desktop  
-- UFW Firewall  
-- systemd journal logging system  
-- Kernel log monitoring tools  
+Service version detection
 
-### Attacker Simulation System
-- Windows Laptop  
-- Zenmap (Nmap GUI)
+Script scanning
+
+Traceroute analysis
+
+-v → Displays verbose output for detailed scan monitoring.
+
+This scan type generates significant network activity and is useful for detection testing in controlled lab environments.
+
+Ubuntu Detection Commands
+Rotate and Clean Old Logs
+sudo journalctl --rotate
+
+Forces systemd to archive current logs and start a new logging cycle.
+
+sudo journalctl --vacuum-time=1s
+
+Removes archived logs older than 1 second to ensure a clean testing environment.
+
+Configure Firewall Logging
+sudo ufw default deny incoming
+
+Blocks all unsolicited incoming network connections by default.
+
+sudo ufw logging medium
+
+Enables balanced firewall logging verbosity.
+
+sudo ufw reload
+
+Applies firewall configuration changes.
+
+Real-Time Log Monitoring
+sudo journalctl -kf | grep UFW
+
+-k → Displays kernel messages where firewall events are recorded.
+
+-f → Follows logs live in real time.
+
+grep UFW → Filters firewall-related firewall entries.
+
+Keep this terminal open during scan execution.
+
+Monitor Blocked Connection Attempts Only
+sudo journalctl -k -f | grep BLOCK
+
+Displays only dropped packets, which is useful for detecting reconnaissance scanning activity.
+
+Log Investigation
+View Logs From Current Boot Session
+sudo journalctl -k --since today
+
+Displays kernel logs generated during the current system boot session.
+
+Search Logs by Attacker IP
+sudo journalctl -k | grep <ATTACKER_IP>
+
+Filters logs associated with a specific scanning source IP address.
+
+Conclusion
+Skills Demonstrated
+
+Host-based firewall configuration
+
+Threat detection fundamentals
+
+Network log analysis and monitoring
+
+Security awareness of reconnaissance behavior
+
+Blue team defensive validation
+
+Key Takeaways
+
+Default-deny firewall policies improve security posture.
+
+Real-time log monitoring enables rapid reconnaissance detection.
+
+Even basic scanning attempts can be identified in system telemetry.
+
+Kernel-level logs provide valuable security visibility.
+
+Author
+
+Personal Security Lab
+
+Focus
+
+Offensive simulation and defensive detection validation
 
 ## Objective
 - Generate detectable scan traffic  
