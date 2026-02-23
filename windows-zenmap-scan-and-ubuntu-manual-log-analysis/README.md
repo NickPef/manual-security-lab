@@ -1,4 +1,4 @@
-# windows-zenmap-initiated-scan-and-ubuntu-manual-log-detection
+# Windows-zenmap-initiated-scan-and-Ubuntu-manual-log-detection
 
 ## Scenario
 A controlled network scan was launched from a Windows machine using Zenmap against an Ubuntu host to simulate reconnaissance activity during the initial phase of a potential cyber attack.
@@ -114,7 +114,7 @@ Filters logs associated with a specific scanning source IP address.
 - Default-deny firewall policies improve security posture.
 - Real-time log monitoring enables rapid reconnaissance detection.
 - Even basic scanning attempts can be identified in system telemetry.
-- Kernel-level logs provide valuable security visibility.
+- Kernel-level logs provide valuable security visibility
 
 
 
