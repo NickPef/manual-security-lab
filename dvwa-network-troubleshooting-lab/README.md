@@ -54,8 +54,9 @@ The service was properly listening for incoming HTTP connections.
 **Network Connectivity Test(Client Side)**
 
 Command (Windows PowerShell)
-Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80
+**Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80**
 Result (Initial State)
+
 TcpTestSucceeded : False
 
 **Interpretation**
