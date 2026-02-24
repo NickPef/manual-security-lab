@@ -85,20 +85,20 @@ The active network connection was assigned to a trusted firewall zone and the co
 After applying the changes, network policies allowed inbound traffic on port 80.
 
 ✅ Verification
-
 Connectivity was tested again from the Windows machine.
 
 Command
+
 Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80
+
 Result
+
 TcpTestSucceeded : True
-Confirmation
+
+**Confirmation**
 
 Successful TCP connection to port 80.
-
 DVWA accessible remotely via browser.
-
-📸 Screenshot: connectivity_success.png
 
 🎯 Root Cause
 
