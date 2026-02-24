@@ -74,7 +74,7 @@ nmap -T4 -A -v <TARGET_IP>
 - Enables balanced firewall logging verbosity.
 
 5)sudo ufw reload
-Applies firewall configuration changes.
+6 Applies firewall configuration changes.
 
 **Real-Time Log Monitoring**
 
