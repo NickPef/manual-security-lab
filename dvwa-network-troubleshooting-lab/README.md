@@ -2,134 +2,158 @@
 
 ## Scenario
 The DVWA was hosted on an Ubuntu Desktop system running Apache2.
-The application was accessible locally from the Ubuntu machine but could not be accessed remotely from a Windows laptop on the same LAN using
+The application was accessible locally but not remotely from a Windows laptop on the same LAN using:
 
-- http://Ubuntu-IP/DVWA
+http://<Ubuntu-IP>/DVWA
 
-Initial connectivity http://<Ubuntu-IP>/DVWA testing from Windows PowerShell indicated that port 80 was unreachable
+---
 
 ## Goal
 Identify the root cause and restore connectivity.
 
+---
+
 ## Environment
-- Target: Ubuntu Desktop
-  - Apache2
-  - DVWA
-  - Local network IP
-- Client: Windows Laptop
 
-## Problem
-DVWA opened locally on Ubuntu but could not be reached from Windows via http://Ubuntu-IP/DVWA Connectivity tests were failing.
+### Target
+- Ubuntu Desktop
+- Apache2
+- DVWA
+- Local Network IP
 
-## Troubleshooting Process
+### Client
+- Windows Laptop
 
-**Apache Verification**
-     
-  Command
-  
-- sudo systemctl status apache2
+---
 
-**What Was Verified**
+# Troubleshooting Process
 
-- Apache service was active (running).
-- Worker processes were operational.
-- No service-level errors detected.
+---
 
-- Conclusion
-- The web server itself was functioning correctly.
-  
-  **Port Check**
-  
-  command
+## 1️⃣ Apache Verification
 
-- sudo ss -tulnp | grep :80
+### Command
+```bash
+sudo systemctl status apache2
+```
 
-**What Was Verified**
+### What Was Verified
+- Apache service was active (running)
+- Worker processes were operational
+- No service-level errors detected
 
-Port 80 was in LISTEN state.
-Apache was bound to the correct TCP port.
-Conclusion
+📸 Screenshot:
+
+![Apache Status](troubleshooting/01_apache_status.png)
+
+### Conclusion
+The web server itself was functioning correctly.
+
+---
+
+## 2️⃣ Port Check
+
+### Command
+```bash
+sudo ss -tulnp | grep :80
+```
+
+### What Was Verified
+- Port 80 was in LISTEN state
+- Apache was bound to the correct TCP port
+
+📸 Screenshot:
+
+![Port 80 Listening](troubleshooting/02_port_listen.png)
+
+### Conclusion
 The service was properly listening for incoming HTTP connections.
 
-**Network Connectivity Test(Client Side)**
+---
 
-Command (Windows PowerShell)
-**Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80**
-Result (Initial State)
+## 3️⃣ Network Connectivity Test (Client Side)
 
-TcpTestSucceeded : False
-
-**Interpretation**
-
-The Windows client could not establish a TCP connection to port 80.
-This indicated a network-level restriction, not an application failure
-
-**Initial Result: TcpTestSucceeded : False → Service unreachable**
-
-**Firewall / Network Zone Investigation**
-
-Checked firewall configuration on Ubuntu. Found that the connection zone was not properly configured.
-
-nmcli connection show
-
-nmcli connection show netplan-enpxxx | grep zone
-
-What Was Discovered
-The active network interface was not assigned to a trusted zone.
-Firewall policy was restricting inbound traffic.
-
-Diagnosis
-The issue was caused by firewall zone configuration blocking external access, despite Apache functioning normally.
-
-
-**Fix Applied**
-The active network connection was assigned to a trusted firewall zone and the configuration was reloaded.
-
-After applying the changes, network policies allowed inbound traffic on port 80.
-
-Verification
-Connectivity was tested again from the Windows machine.
-
-Command
-
+### Command (Windows PowerShell)
+```powershell
 Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80
+```
 
-Result
+### Initial Result
+```
+TcpTestSucceeded : False
+```
 
+📸 Screenshot:
+
+![Connectivity Failed](troubleshooting/03_connectivity_false.png)
+
+### Interpretation
+The Windows client could not establish a TCP connection.
+This indicated a network-level restriction.
+
+---
+
+## 4️⃣ Firewall / Network Zone Investigation
+
+### Commands
+```bash
+nmcli connection show
+```
+
+```bash
+nmcli connection show netplan-enpxxx | grep zone
+```
+
+### What Was Discovered
+- The active network interface was not assigned to a trusted zone
+- Firewall policy was restricting inbound traffic
+
+📸 Screenshot:
+
+![Firewall Zone Check](troubleshooting/04_nmcli_zone.png)
+
+### Diagnosis
+Firewall zone configuration was blocking external access.
+
+---
+
+# Fix Applied
+
+The active network connection was assigned to a trusted firewall zone and reloaded.
+
+---
+
+# Verification
+
+### Command
+```powershell
+Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80
+```
+
+### Result
+```
 TcpTestSucceeded : True
+```
 
-**Confirmation**
+📸 Screenshot:
 
-Successful TCP connection to port 80.
-DVWA accessible remotely via browser.
+![Connectivity Success](troubleshooting/05_connectivity_true.png)
 
-🎯 Root Cause
+### Confirmation
+- Successful TCP connection
+- DVWA accessible remotely
 
-The issue was not related to Apache or DVWA configuration.
-It was caused by incorrect firewall zone assignment on the Ubuntu host, which blocked inbound network traffic from the local LAN.
+---
 
-🧾 Final Outcome
+# Root Cause
 
-After correcting the firewall zone configuration and validating connectivity:
-Apache service confirmed operational
-Port 80 verified open
-Firewall policy corrected
-Remote access to DVWA successfully restored
+Incorrect firewall zone assignment on the Ubuntu host blocked inbound LAN traffic.
 
+---
 
+# Final Outcome
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
+- Apache confirmed operational
+- Port 80 verified open
+- Firewall policy corrected
+- Remote access restored
