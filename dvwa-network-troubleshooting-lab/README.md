@@ -2,7 +2,7 @@
 
 ## Scenario
 The DVWA was hosted on an Ubuntu Desktop system running Apache2.
-The application was accessible locally from the Ubuntu machine but could not be accessed remotely from a Windows laptop on the same LAN using:
+The application was accessible locally from the Ubuntu machine but could not be accessed remotely from a Windows laptop on the same LAN using
 - http://<Ubuntu-IP>/DVWA
 - Initial connectivity http://<Ubuntu-IP>/DVWA testing from Windows PowerShell indicated that port 80 was unreachable
 
