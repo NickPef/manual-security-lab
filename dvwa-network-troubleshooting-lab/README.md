@@ -38,7 +38,7 @@ DVWA opened locally on Ubuntu but could not be reached from Windows via `http://
   
    2. **Port Check**
   
-      command
+  command
 
 - sudo ss -tulnp | grep :80
 
