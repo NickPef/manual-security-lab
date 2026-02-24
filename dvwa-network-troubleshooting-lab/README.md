@@ -19,7 +19,7 @@ Identify the root cause and restore connectivity.
 - Client: Windows Laptop
 
 ## Problem
-DVWA opened locally on Ubuntu but could not be reached from Windows via `http://<Ubuntu-IP>/DVWA. Connectivity tests were failing.
+DVWA opened locally on Ubuntu but could not be reached from Windows via http://Ubuntu-IP/DVWA Connectivity tests were failing.
 
 ## Troubleshooting Process
 
