@@ -23,7 +23,7 @@ DVWA opened locally on Ubuntu but could not be reached from Windows via http://U
 
 ## Troubleshooting Process
 
-1. **Apache Verification**
+**Apache Verification**
      
   Command
   
@@ -38,20 +38,20 @@ DVWA opened locally on Ubuntu but could not be reached from Windows via http://U
 - Conclusion
 - The web server itself was functioning correctly.
   
-   2. **Port Check**
+  **Port Check**
   
   command
 
 - sudo ss -tulnp | grep :80
 
-2, **What Was Verified**
+**What Was Verified**
 
 Port 80 was in LISTEN state.
 Apache was bound to the correct TCP port.
 Conclusion
 The service was properly listening for incoming HTTP connections.
 
-3. **Network Connectivity Test(Client Side)**
+**Network Connectivity Test(Client Side)**
 
 Command (Windows PowerShell)
 Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80
@@ -65,7 +65,7 @@ This indicated a network-level restriction, not an application failure
 
 **Initial Result: TcpTestSucceeded : False → Service unreachable**
 
-4. **Firewall / Network Zone Investigation**
+**Firewall / Network Zone Investigation**
 
 Checked firewall configuration on Ubuntu. Found that the connection zone was not properly configured.
 
@@ -81,12 +81,12 @@ Diagnosis
 The issue was caused by firewall zone configuration blocking external access, despite Apache functioning normally.
 
 
-5. **Fix Applied**
+**Fix Applied**
 The active network connection was assigned to a trusted firewall zone and the configuration was reloaded.
 
 After applying the changes, network policies allowed inbound traffic on port 80.
 
-✅ Verification
+Verification
 Connectivity was tested again from the Windows machine.
 
 Command
