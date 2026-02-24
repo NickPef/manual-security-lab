@@ -44,7 +44,7 @@ DVWA opened locally on Ubuntu but could not be reached from Windows via http://U
 
 - sudo ss -tulnp | grep :80
 
-**What Was Verified**
+2, **What Was Verified**
 
 Port 80 was in LISTEN state.
 Apache was bound to the correct TCP port.
