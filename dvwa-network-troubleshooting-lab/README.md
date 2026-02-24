@@ -34,7 +34,7 @@ sudo ss -tulnp | grep :80
 3. **Network Connectivity Test**
 
 From Windows:
-
+windows+R - powershell
 Test-NetConnection -Port 80
 
 **Initial Result: TcpTestSucceeded : False → Service unreachable**
