@@ -42,7 +42,7 @@ sudo systemctl status apache2
 - Worker processes were operational
 - No service-level errors detected
 
-📸 Screenshot:
+
 
 ![Apache Status](troubleshooting/01_apache_status.png)
 
@@ -62,7 +62,7 @@ sudo ss -tulnp | grep :80
 - Port 80 was in LISTEN state
 - Apache was bound to the correct TCP port
 
-📸 Screenshot:
+
 
 ![Port 80 Listening](troubleshooting/02_port_listen.png)
 
@@ -83,9 +83,7 @@ Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80
 TcpTestSucceeded : False
 ```
 
-📸 Screenshot:
 
-![Connectivity Failed](troubleshooting/03_connectivity_false.png)
 
 ### Interpretation
 The Windows client could not establish a TCP connection.
@@ -110,7 +108,6 @@ nmcli connection show netplan-enpxxx | grep zone
 
 📸 Screenshot:
 
-![Firewall Zone Check](troubleshooting/04_nmcli_zone.png)
 
 ### Diagnosis
 Firewall zone configuration was blocking external access.
@@ -135,9 +132,6 @@ Test-NetConnection -ComputerName <Ubuntu-IP> -Port 80
 TcpTestSucceeded : True
 ```
 
-📸 Screenshot:
-
-![Connectivity Success](troubleshooting/05_connectivity_true.png)
 
 ### Confirmation
 - Successful TCP connection
