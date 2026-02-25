@@ -62,8 +62,6 @@ sudo ss -tulnp | grep :80
 
 
 
-![Port 80 Listening](troubleshooting/02_port_listen.png)
-
 ### Conclusion
 The service was properly listening for incoming HTTP connections.
 
@@ -104,7 +102,6 @@ nmcli connection show netplan-enpxxx | grep zone
 - The active network interface was not assigned to a trusted zone
 - Firewall policy was restricting inbound traffic
 
-📸 Screenshot:
 
 
 ### Diagnosis
