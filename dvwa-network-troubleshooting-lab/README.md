@@ -4,7 +4,7 @@
 The DVWA was hosted on an Ubuntu Desktop system running Apache2.
 The application was accessible locally but not remotely from a Windows laptop on the same LAN using:
 
-http://Ubuntu-IP/DVWA
+http://Ubuntu-IP/DVWA 
 
 ---
 
