@@ -44,8 +44,6 @@ sudo systemctl status apache2
 
 
 
-![Apache Status](troubleshooting/01_apache_status.png)
-
 ### Conclusion
 The web server itself was functioning correctly.
 
